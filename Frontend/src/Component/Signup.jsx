@@ -1,17 +1,26 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Login from './Login';
 
 function Signup() {
   return (
     <>
       <div className="flex h-screen items-center justify-center">
-      <div id="my_modal_3" className="border-[2px] shadow-md p-5 rounded-md"> 
-  <div className="">
-    <form method="div">
+      <div  className=" w-[600px] "> 
+  <div className="modal-box">
+    <form method="dialog">
       {/* if there is a button in form, it will close the modal */}
-      <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+      <Link to="/" className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</Link>
     </form>
     <h3 className="font-bold text-lg">Signup</h3>
+    <div className= "mt-3 space-y- 2">
+        <span>Name</span>
+        <br />
+        <input type="text" 
+        placeholder="Enter your full name"
+        className="w-80 px-3 border rounded-md outline-none"
+        />
+    </div>
     {/*Email */}
     <div className= "mt-3 space-y- 2">
         <span>Email</span>
@@ -32,10 +41,16 @@ function Signup() {
     </div>
   {/*Button */}
   <div className="flex justify-between  mt-4 ml-">
-    <button className="bg-pink-500 text-white rounded-md px-3 py-1 hover:bg-pink-700 duration-200">Login</button>
+    <button className="bg-pink-500 text-white rounded-md px-3 py-1 hover:bg-pink-700 duration-200">Signup </button>
     <p className="mr-4">
-        Not registered? 
-        <Link to="/Signup" className="underline text-blue-500">Signup</Link>{ " "} 
+        Have Account? 
+        <button to="/" className="underline text-blue-500 cursor-pointer"
+        onClick={() => 
+            document.getElementById("my_modal_3").showModal()
+        }
+        >
+            Login</button>{ " "}
+            <Login/> 
         </p>
   </div> 
   </div>
